@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import 'leaflet/dist/leaflet.css';
+@import 'leaflet-geosearch/dist/geosearch.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --map-marker-color: #ef4444;
+}
+
+.dark {
+  --map-marker-color: #f87171;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.leaflet-control-geosearch {
+  @apply !fixed !left-1/2 !-translate-x-1/2 !top-5 !w-full !max-w-xl !z-[1000];
+}
+
+.leaflet-control-geosearch form {
+  @apply !flex !items-center !gap-3 !px-4 !border-none !rounded-2xl overflow-hidden;
+  @apply !bg-white/95 dark:!bg-gray-800/95 backdrop-blur-sm;
+  @apply !shadow-lg !shadow-black/5 dark:!shadow-black/20;
+  @apply !border !border-gray-200/50 dark:!border-gray-700/50;
+  @apply !transition-all !duration-300;
+}
+
+.leaflet-control-geosearch form:focus-within {
+  @apply !shadow-xl !scale-[1.02] !bg-white dark:!bg-gray-800;
+}
+
+.search-icon {
+  @apply !text-gray-400 dark:!text-gray-500;
+}
+
+.leaflet-control-geosearch form input {
+  @apply !h-14 !pl-0 !pr-4 !text-base !text-gray-900 dark:!text-gray-100;
+  @apply !bg-transparent;
+  @apply !border-none !outline-none;
+  @apply !font-medium;
+  @apply !transition-colors !duration-200;
+}
+
+.leaflet-control-geosearch form input::placeholder {
+  @apply !text-gray-400 dark:!text-gray-500 !font-normal;
+}
+
+.leaflet-geosearch-button {
+  @apply !hidden;
+}
+
+/* Hide the close button */
+.leaflet-control-geosearch form .reset {
+  @apply !hidden;
+}
+
+.leaflet-control-geosearch .results {
+  @apply !mt-2 !rounded-xl overflow-hidden;
+  @apply !bg-white/95 dark:!bg-gray-800/95 backdrop-blur-sm;
+  @apply !border !border-gray-200/50 dark:!border-gray-700/50;
+  @apply !shadow-lg !shadow-black/5 dark:!shadow-black/20;
+  @apply !divide-y !divide-gray-100 dark:!divide-gray-700/50;
+}
+
+.leaflet-control-geosearch .results > * {
+  @apply !py-3 !px-4;
+  @apply !text-gray-900 dark:!text-gray-100 !bg-transparent;
+  @apply !transition-colors !duration-150;
+}
+
+.leaflet-control-geosearch .results > *:hover {
+  @apply !bg-gray-50 dark:!bg-gray-700/50;
+}
+
+.map-container {
+  @apply w-full h-screen;
+}
+
+.leaflet-container {
+  @apply w-full h-full;
+}
